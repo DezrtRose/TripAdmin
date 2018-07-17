@@ -1,0 +1,5 @@
+<?php if ( ! defined('BASEPATH') ) exit('No direct script access allowed.');
+
+$redirects = array(
+'https://blackdiamondexpedition.com/trips/nepal-sightseeing-tour'	=>	'https://blackdiamondexpedition.com/nepal-himalaya/nature-and-wildlife/nepal-sightseeing-tour',
+);
