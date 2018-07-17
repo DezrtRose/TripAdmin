@@ -2,7 +2,7 @@
 	exit( 'No direct script access allowed' );
 }
 
-class Destinations extends CI_Controller {
+class Destinations extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 	}
