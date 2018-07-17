@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Destination extends CI_Controller {
+class Destination extends MY_Controller {
     function __construct()
     {
         parent:: __construct();

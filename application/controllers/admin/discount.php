@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Discount extends CI_Controller
+class Discount extends MY_Controller
 {
     function __construct()
     {

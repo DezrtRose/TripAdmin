@@ -10,9 +10,9 @@
         </p>
         <p>
             <h3 style="margin-bottom: 0; color: rgb(74, 150, 219); text-transform: uppercase;">With Regards</h3>
-            <?php echo SITE_NAME ?><br/>
-            Address: <?php echo SITE_ADDRESS ?><br/>
-            Phone: <?php echo NUMBER ?><br/>
+            <?php echo $this->site_data->title ?><br/>
+            Address: <?php echo $this->site_data->address1 ?><br/>
+            Phone: <?php echo $this->site_data->phone1 ?><br/>
             Website: <?php echo SITE ?>
         </p>
     </div>

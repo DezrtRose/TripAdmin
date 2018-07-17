@@ -1,5 +1,5 @@
 <?php
-class Subscriber extends CI_Controller
+class Subscriber extends MY_Controller
 {
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Review extends CI_Controller 
+class Review extends MY_Controller
 {
     function __construct()
     {

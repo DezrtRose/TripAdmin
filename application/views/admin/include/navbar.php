@@ -86,15 +86,9 @@ $session = $this->session->all_userdata();
                 </a>
             </li>
 
-            <li class="<?php echo ( segment( 2 ) == 'why-travel-with-us' ) ? 'active' : '' ?>">
-                <a href="<?php echo base_url( 'admin/why-travel-with-us' ) ?>">
-                    <i class="fa fa-users"></i> <span>Why Travel With Us</span>
-                </a>
-            </li>
-
             <li class="<?php echo ( segment( 2 ) == 'seo' ) ? 'active' : '' ?>">
                 <a href="<?php echo base_url( 'admin/seo' ) ?>">
-                    <i class="fa fa-google"></i> <span>SEO Manager</span>
+                    <i class="fa fa-google"></i> <span>Website Configuration</span>
                 </a>
             </li>
 

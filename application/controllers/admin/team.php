@@ -1,6 +1,6 @@
 <?php
 
-class Team extends CI_Controller
+class Team extends MY_Controller
 
 {
 

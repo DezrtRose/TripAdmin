@@ -145,7 +145,7 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 text-center">All Rights Reserved &copy; 2018 <?php echo SITE_NAME ?></div>
+                <div class="col-lg-6 text-center">All Rights Reserved &copy; 2018 <?php echo $this->site_data->title ?></div>
                 <div class="col-lg-6 text-center">Powered By: <a href="https://thirdeyesystem.com/" target="_blank">Third
                         Eye Systems (P.) Ltd.</a></div>
             </div>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><?php echo SITE_NAME ?> | Control Panel</title>
+    <title><?php echo $this->site_data->title ?> | Control Panel</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="<?php echo base_url('assets/admin-assets/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css"/>

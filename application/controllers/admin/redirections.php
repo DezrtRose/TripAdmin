@@ -2,7 +2,7 @@
 	exit( 'No direct script access allowed' );
 }
 
-class Redirections extends CI_Controller {
+class Redirections extends MY_Controller {
 
 	function __construct() {
 		parent:: __construct();
