@@ -89,6 +89,21 @@ class Trip extends MY_Controller {
                 }
             }
 
+            if(isset($_FILES['feature_image'])){
+                $image = $_FILES['feature_image'];
+                if (!empty($image['name'])) {
+                    if($id != '') {
+                        $feature_img = $this->common_model->get_where('tbl_trips', array('id' => $id));
+                        $url = 'images/trip/'.$feature_img[0]['feature_image'];
+                        if($feature_img[0]['feature_image'] != '' && file_exists($url))
+                            unlink($url);
+                    }
+                    $files_data = $this->common_library->upload_image('feature_image', 'images/trip/', 'featured-' . url_title($post['name'], '-', true) . '-' . time());
+                    $image_name = $files_data['filename'];
+                    $post['feature_image'] = $image_name;
+                }
+            }
+
             if(isset($_FILES['pdf_file'])){
                 $pdf_file = $_FILES['pdf_file'];
                 if (!empty($pdf_file['name'])) {
@@ -160,7 +175,7 @@ class Trip extends MY_Controller {
 			        $this->common_model->insert('tbl_trip_discount', $discount_data);
 		        }
 	        }
-	        
+
             set_flash('msg', 'Trip saved');
             redirect("admin/trip/add_update/$id");
         } else {

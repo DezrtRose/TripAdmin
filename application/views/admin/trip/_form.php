@@ -46,6 +46,7 @@ if ( segment( 4 ) != '' || $this->session->userdata('trip_data')) {
 	$similar              = isset($trip['similar']) ? explode( ',', $trip['similar'] ) : [];
 	$transport            = $trip['transport'];
 	$map                  = isset($trip['map']) ? $trip['map'] : '';
+	$feature_image        = isset($trip['feature_image']) ? $trip['feature_image'] : '';
     $pdf_file             = isset($trip['pdf_file']) ? $trip['pdf_file'] : '';
 	$leader               = $trip['leader'];
 	$status               = isset($trip['status']) ? $trip['status'] : '';
@@ -223,6 +224,17 @@ if ( segment( 4 ) != '' || $this->session->userdata('trip_data')) {
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-md-2">Feature Image</label>
+                                <div class="col-md-8">
+                                    <input type="file" name="feature_image">
+                                </div>
+                            </div>
+							<?php if ( ! $isNew && $feature_image != '' ) { ?>
+                                <div class="form-group col-md-12">
+                                    <img src="<?php echo base_url( 'images/trip/' . $feature_image ) ?>" width="20%">
+                                </div>
+							<?php } ?>
                             <div class="form-group col-md-12">
                                 <label class="col-md-2">Map</label>
                                 <div class="col-md-8">
