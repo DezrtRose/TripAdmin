@@ -168,6 +168,18 @@ if(segment(4) != '') {
 
 							<td>
 
+								<label>Certificates</label>
+
+								<input type="file" name="certificate[]" multiple>
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+
 								<input id="has-ckeditor" class="btn btn-primary" type="submit" value="Save">
 
 							</td>

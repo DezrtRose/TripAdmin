@@ -19,6 +19,8 @@ if ( segment( 4 ) != '' || $this->session->userdata('trip_data')) {
 	$highlights    = $trip['highlights'];
 	$itinerary     = $trip['itinerary'];
 	$dest_id       = $trip['dest_id'];
+	$old_discount        = $this->common_model->get_where( 'tbl_trip_discount', array( 'trip_id' => $trip_id ) );
+	$discount            = isset($old_discount[0]['discount']) ? $old_discount[0]['discount'] : '';
 	$primary_activity_id = $trip['primary_activity_id'];
 	$act_id        = $this->common_model->get_where( 'tbl_trip_activity', array( 'trip_id' => $trip_id ) );
 	$acts[]        = 0;
@@ -113,6 +115,13 @@ if ( segment( 4 ) != '' || $this->session->userdata('trip_data')) {
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" name="cost"
                                            value="<?php echo ! $isNew ? $cost : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-md-2">Offer Price</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="discount"
+                                           value="<?php echo ! $isNew ? $discount : '' ?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">

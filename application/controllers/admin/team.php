@@ -72,8 +72,6 @@ class Team extends MY_Controller
 
 			$post = $_POST;
 
-
-
 			$image = $_FILES['img'];
 
 			if (!empty($image['name'])) {
@@ -98,16 +96,20 @@ class Team extends MY_Controller
 
 			}
 
-
-
 			if($team_id == '') {
 
-				$this->common_model->insert('tbl_team', $post);
+				$team_id = $this->common_model->insert('tbl_team', $post, true);
 
 			} else {
 
 				$this->common_model->update('tbl_team', $post, array('id' => $team_id));
 
+			}
+
+			$certificates = $_FILES['certificate'];
+
+			if (!empty($certificates['name']) && $certificates['name'][0] != '') {
+				$this->upload_certificates($team_id, $certificates);
 			}
 
 			set_flash('msg', 'Team saved');
@@ -134,6 +136,19 @@ class Team extends MY_Controller
 
 		}
 
+	}
+
+	public function upload_certificates($team_id, $certificates)
+	{
+		foreach($certificates['name'] as $key => $certificate) {
+			$target_dir = "images/team/";
+			$file_ext = explode('.', $certificate)[1];
+			$certificate_name = 'team-certificate-' . time() . $key . '.' . $file_ext;
+			$target_file = $target_dir . $certificate_name;
+			if(move_uploaded_file($certificates["tmp_name"][$key], $target_file)) {
+				$this->common_model->insert('tbl_team_certificate', ['team_id' => $team_id, 'image' => $certificate_name]);
+			}
+		}
 	}
 
 

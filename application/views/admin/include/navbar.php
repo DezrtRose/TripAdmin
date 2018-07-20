@@ -63,9 +63,6 @@ $session = $this->session->all_userdata();
                     <li class="<?php echo ( segment( 2 ) == 'activity' ) ? 'active' : '' ?>"><a
                                 href="<?php echo base_url( 'admin/activity' ) ?>"><i
                                     class="fa fa-angle-double-right"></i> Activities</a></li>
-                    <li class="<?php echo ( segment( 2 ) == 'discount' ) ? 'active' : '' ?>"><a
-                                href="<?php echo base_url( 'admin/discount' ) ?>"><i
-                                    class="fa fa-angle-double-right"></i> Trip Discount</a></li>
                     <li class="<?php echo ( segment( 2 ) == 'review' ) ? 'active' : '' ?>"><a
                                 href="<?php echo base_url( 'admin/review' ) ?>"><i class="fa fa-angle-double-right"></i>
                             Trip Reviews</a></li>

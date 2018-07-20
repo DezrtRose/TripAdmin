@@ -44,6 +44,8 @@ class Trip extends MY_Controller {
         if($_POST) {
             if(isset($_POST['slider'])) $this->add_slider();
             $post = $_POST;
+            $discount_rate = $post['discount'] ? $post['discount'] : false;
+	        unset($post['discount']);
 	        if(isset($post['slug']) && (($id == '' && $this->common_model->get_where('tbl_trips', array('slug' => $post['slug']))) || ($this->common_model->get_where('tbl_trips', array('slug' => $post['slug'], 'id !=' => $id))))) {
 		        $this->session->set_userdata(array('trip_data' => $post));
 		        set_flash('msg', 'Duplicate slug not allowed.');
@@ -142,6 +144,23 @@ class Trip extends MY_Controller {
                         }
                 }
             }
+
+            if($discount_rate) {
+		        $old_discount = $this->common_model->getWhere('tbl_trip_discount', array('trip_id' => $id));
+		        if($old_discount) {
+			        $discount_data = array(
+				        'discount' => $discount_rate
+			        );
+			        $this->common_model->update('tbl_trip_discount', $discount_data, array('id' => $id));
+		        } else {
+			        $discount_data = array(
+				        'trip_id' => $id,
+				        'discount' => $discount_rate
+			        );
+			        $this->common_model->insert('tbl_trip_discount', $discount_data);
+		        }
+	        }
+	        
             set_flash('msg', 'Trip saved');
             redirect("admin/trip/add_update/$id");
         } else {
