@@ -411,3 +411,17 @@ function verify_captcha($response_code)
 	curl_close($curl);
 	return json_decode($resp, true);
 }
+
+function generate_thumb($params)
+{
+	$crop = isset($params['crop']) ? $params['crop'] : 1;
+	$path = $params['file'] != '' && file_exists($params['url'] . $params['file']) ? base_url(substr($params['url'], 2) . $params['file']) : base_url('images/no-image.jpg');
+	return base_url() . 'assets/phpthumb/phpThumb.php?src=' . urlencode($path) . '&amp;w=' . $params['width'] . '&amp;h=' . $params['height'] . '&amp;zc=' . $crop;
+}
+
+function has_regions($destination_id)
+{
+	$ci = &get_instance();
+	$destination = $ci->common_model->get_where('tbl_regions', array('dest_id' => $destination_id));
+	return $destination;
+}
