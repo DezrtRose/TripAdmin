@@ -479,7 +479,7 @@ if ( segment( 4 ) != '' || $this->session->userdata('trip_data')) {
                             </div>
                         </form>
                     </div>
-                    <div class="row tab-pane" id="itinerary">
+                    <div class="tab-pane" id="itinerary">
                         <div style="margin-top:10px;"></div>
                         <form enctype="multipart/form-data" action="" class="form-horizontal" method="post">
                             <div class="panel panel-default">
