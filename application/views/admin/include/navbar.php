@@ -20,7 +20,7 @@ $session = $this->session->all_userdata();
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="treeview <?php echo ( segment( 2 ) == 'content' || segment(2) == 'team' ) ? 'active' : '' ?>">
+            <li class="treeview <?php echo ( segment( 2 ) == 'content' || segment(2) == 'team'  || segment(2) == 'gallery' ) ? 'active' : '' ?>">
                 <a href="javascript:;">
                     <i class="fa fa-file"></i>
                     <span>Content Manager</span>
@@ -36,9 +36,12 @@ $session = $this->session->all_userdata();
                     <li class="<?php echo ( segment( 2 ) == 'team' ) ? 'active' : '' ?>">
                         <a href="<?php echo base_url( 'admin/team' ) ?>"><i
                                     class="fa fa-angle-double-right"></i> Team Manager</a></li>
-
+                    <li class="<?php echo ( segment( 2 ) == 'gallery' ) ? 'active' : '' ?>">
+                        <a href="<?php echo base_url( 'admin/gallery' ) ?>"><i
+                                    class="fa fa-angle-double-right"></i> Gallery</a></li>
                 </ul>
             </li>
+            <?php /*
             <li class="treeview <?php echo ( in_array( segment( 2 ), array(
 				'tripmenu',
 				'trip',
@@ -71,17 +74,18 @@ $session = $this->session->all_userdata();
                                     class="fa fa-angle-double-right"></i> Trip Departure Dates</a></li>
 
                 </ul>
-            </li>
+            </li> */ ?>
             <li class="<?php echo ( segment( 2 ) == 'news' ) ? 'active' : '' ?>">
                 <a href="<?php echo base_url( 'admin/news' ) ?>">
                     <i class="fa fa-globe"></i> <span>Blogs</span>
                 </a>
             </li>
+            <?php /*
             <li class="<?php echo ( segment( 2 ) == 'subscriber' ) ? 'active' : '' ?>">
                 <a href="<?php echo base_url( 'admin/subscriber' ) ?>">
                     <i class="fa fa-rss-square"></i> <span>Subscribers</span>
                 </a>
-            </li>
+            </li> */ ?>
 
             <li class="<?php echo ( segment( 2 ) == 'seo' ) ? 'active' : '' ?>">
                 <a href="<?php echo base_url( 'admin/seo' ) ?>">
@@ -89,11 +93,12 @@ $session = $this->session->all_userdata();
                 </a>
             </li>
 
+            <?php /*
             <li class="<?php echo ( segment( 2 ) == 'redirections' ) ? 'active' : '' ?>">
                 <a href="<?php echo base_url( 'admin/redirections' ) ?>">
                     <i class="fa fa-link"></i> <span>Redirections Manager</span>
                 </a>
-            </li>
+            </li>*/ ?>
 
             <li class="<?php echo ( segment( 2 ) == 'config' ) ? 'active' : '' ?>">
                 <a href="<?php echo base_url( 'admin/config' ) ?>">
